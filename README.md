@@ -1,5 +1,7 @@
 # SkylordsRebornSMJSLRAPI
 A .Net API Implementation for Skylords Reborn API originally cloned from SkylordsRebornAPI
+Retrieves information from both  "https://smj.cards/api/" and "https://hub.backend.skylords.eu/api/"
+The Sample1 project extracts all "Skylords Reborn" game card information from both sites and puts them in C# classes that can then be queried quickly by LINQ commands
 
 ## Example
 ```csharp
