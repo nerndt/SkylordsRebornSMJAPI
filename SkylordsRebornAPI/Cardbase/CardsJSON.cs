@@ -603,4 +603,58 @@ namespace SkylordsRebornAPI.Cardbase
         [JsonProperty("4-8")]
         public string _48 { get; set; }
     }
+
+    public static class Utils
+    {
+        public static SMJCard CopySkylordsRebornCard(SkylordsRebornCard SLRCard)
+        {
+            SMJCard smjCard = new SMJCard();
+            // smjCard._id = ???
+            smjCard.officialCardIds = new List<int> { SLRCard.cardId };
+            smjCard.cardName = smjCard.cardNameSimple = SLRCard.cardName;
+            smjCard.rarity = int.Parse(SLRCard.rarity);
+            smjCard.promo = int.Parse(SLRCard.promo);
+            smjCard.orbsFire = SLRCard.fireOrbs;
+            smjCard.orbsShadow = SLRCard.shadowOrbs;
+            smjCard.orbsNature = SLRCard.natureOrbs;
+            smjCard.orbsFrost = SLRCard.frostOrbs;
+            smjCard.orbsFireShadow = SLRCard.fireShadowOrbs;
+            smjCard.orbsNatureFrost = SLRCard.natureFrostOrbs;
+            // smjCard.orbsFireNature = SLRCard.fireOrbs;
+            smjCard.orbsShadowFrost = SLRCard.shadowFrostOrbs;
+            smjCard.orbsShadowNature = SLRCard.shadownNatureOrbs;
+            smjCard.orbsFireFrost = SLRCard.fireFrostOrbs;
+            smjCard.orbsNeutral = SLRCard.neutralOrbs;
+            smjCard.affinity = int.Parse(SLRCard.affinity);
+            smjCard.type = int.Parse(SLRCard.cardType);
+
+             return smjCard;
+        }
+
+        public static SkylordsRebornCard CopySMJCard(SMJCard SMJCard)
+        {
+            SkylordsRebornCard SLRCard = new SkylordsRebornCard();
+            SLRCard.cardId = SMJCard.officialCardIds[0];
+            SLRCard.cardName = SMJCard.cardName;
+            SLRCard.rarity = SMJCard.rarity.ToString();
+            SLRCard.promo = SMJCard.promo.ToString();
+
+            SLRCard.fireOrbs = SMJCard.orbsFire;
+            SLRCard.shadowOrbs = SMJCard.orbsShadow;
+            SLRCard.natureOrbs = SMJCard.orbsNature;
+            SLRCard.frostOrbs = SMJCard.orbsFrost;
+            SLRCard.fireShadowOrbs = SMJCard.orbsFireShadow;
+            SLRCard.natureFrostOrbs = SMJCard.orbsNatureFrost;
+            //SLRCard.fireNatureOrbs = SMJCard.orbsFireNature;
+            SLRCard.shadowFrostOrbs = SMJCard.orbsShadowFrost;
+            SLRCard.shadownNatureOrbs = SMJCard.orbsShadowNature;
+            SLRCard.fireFrostOrbs = SMJCard.orbsFireFrost;
+            SLRCard.neutralOrbs = SMJCard.orbsNeutral;
+            SLRCard.affinity = SMJCard.affinity.ToString();
+            SLRCard.cardType = SMJCard.type.ToString();
+
+            return SLRCard;
+        }
+
+    }
 }
