@@ -27,6 +27,9 @@ namespace Sample1
         private static void Main()
         {
             SMJCard[] cardsSMJ = Instances.CardService.GetSMJCardList();
+            string message = string.Format("Number of cards in SMJ.cards api:{0}", cardsSMJ.Count());
+            Console.WriteLine(message);
+
             // Use LINQ commands to get specific cards - for example get MasterArchers
 
             var queryCards = cardsSMJ.Where(item => item.cardName == "Wheel of Gifts"); // "Master Archers"); "Wheel of Gifts" "Shaman"
@@ -38,6 +41,9 @@ namespace Sample1
             }
 
             SkylordsRebornCard[] cardsSLR = Instances.CardService.GetSkylordsRebornCardList();
+            message = string.Format("Number of cards in SkylordsReborn api:{0}", cardsSLR.Count());
+            Console.WriteLine(message);
+            
             // Use LINQ commands to get specific cards - for example get MasterArchers
 
             var queryCardsSLR = cardsSLR.Where(item => item.cardName == "Wheel of Gifts"); // "Master Archers"); "Wheel of Gifts" "Shaman"
