@@ -9,7 +9,8 @@ namespace SkylordsRebornAPI.Cardbase
 {
     public class MapService
     {
-        private readonly string baseUrl = "https://skylords-reborn-skylords-reborn-api-hub-backend.staging.skylords.eu/"; // "https://cardbase.skylords.eu/";
+        // private readonly string baseUrl = "https://skylords-reborn-skylords-reborn-api-hub-backend.staging.skylords.eu/"; // "https://cardbase.skylords.eu/";
+        private readonly string baseUrl = "https://hub.backend.skylords.eu/api/"; 
 
         /// <summary>
         ///     Does not work due to the API not displaying any results.

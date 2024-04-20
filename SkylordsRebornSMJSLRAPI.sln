@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkylordsRebornSMJAPI", "SkylordsRebornAPI\SkylordsRebornSMJAPI.csproj", "{9560C900-9DFD-4850-B9F8-1FD9E91BB078}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SkylordsRebornSMJSLRAPI", "SkylordsRebornAPI\SkylordsRebornSMJSLRAPI.csproj", "{9560C900-9DFD-4850-B9F8-1FD9E91BB078}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample1", "Sample1\Sample1.csproj", "{42CBA974-EDBA-4150-A376-7476B25FC197}"
 EndProject

@@ -12,8 +12,8 @@ namespace SkylordsRebornAPI.Cardbase
 {
     public class CardService
     {
-        private readonly string baseUrl = "https://smj.cards/api/"; // NGE04182024 THIS GETS AN OK RESPONSE FROM THE SERVER // "https://cardbase.skylords.eu/";
-        // private readonly string baseUrl = "https://skylords-reborn-skylords-reborn-api-hub-backend.staging.skylords.eu/"; // NGE04182024 THIS GETS AN OK RESPONSE FROM THE SERVER // "https://cardbase.skylords.eu/";
+        private readonly string baseSMJUrl = "https://smj.cards/api/"; // NGE04182024 THIS GETS AN OK RESPONSE FROM THE SERVER // "https://cardbase.skylords.eu/";
+        private readonly string baseSkylordsRebornUrl = "https://hub.backend.skylords.eu/api/"; // NGE04182024 THIS GETS AN OK RESPONSE FROM THE SERVER // "https://cardbase.skylords.eu/";
         private string urlContent = null;
 
         async Task ReadWebPageAsync(string url)
@@ -23,30 +23,51 @@ namespace SkylordsRebornAPI.Cardbase
 
             using var reader = new StreamReader(stream);
             urlContent = reader.ReadToEnd();
-            Console.WriteLine(urlContent); // Display the fetched content
+            // Console.WriteLine(urlContent); // Display the fetched content
         }
 
-        public SMJCard[] GetCardList()
+        public SMJCard[] GetSMJCardList()
         {
-            var url = $"{baseUrl}cards";
+            var url = $"{baseSMJUrl}cards";
             try
             {
-                WebClient client = new WebClient();
-                string json = client.DownloadString(url);
-
-                Root SMJRoot = JsonConvert.DeserializeObject<Root>(json);
-                List<SMJCard> cardlist = SMJRoot.data;
+                ReadWebPageAsync(url).Wait(); // fills in string urlContent
+                SMJCards cards = JsonConvert.DeserializeObject<SMJCards>(urlContent);
+                List<SMJCard> cardlist = cards.data;
                 return cardlist.ToArray();
             }
             catch (Exception ex) // SMJ.cards/api/cards must have changed the JSON!!!!
             {
+                string exMessage = ex.Message;
+                return null;
+            }
+        }
+
+        public SkylordsRebornCard[] GetSkylordsRebornCardList()
+        {
+            var url = $"{baseSkylordsRebornUrl}auctions/cards?id=all";
+            try
+            {
+                ReadWebPageAsync(url).Wait(); // fills in string urlContent
+                List<SkylordsRebornCard> cardlist = JsonConvert.DeserializeObject<List<SkylordsRebornCard>>(urlContent);
+
+                //WebClient client = new WebClient();
+                //string json = client.DownloadString(url);
+
+                //SMJCards SMJRoot = JsonConvert.DeserializeObject<SMJCards>(json);
+                //List<SMJCard> cardlist = SMJRoot.data;
+                return cardlist.ToArray();
+            }
+            catch (Exception ex) // JSON on website must have changed!!!
+            {
+                string exMessage = ex.Message;
                 return null;
             }
         }
 
         public SMJCard[] HandleCardRequest(List<Tuple<RequestProperty, string>> requestProperties)
         {
-            var url = $"{baseUrl}cards";
+            var url = $"{baseSMJUrl}cards";
 
             /* // NGE04192024
             for (var index = 0; index < requestProperties.Count; index++)
@@ -58,15 +79,15 @@ namespace SkylordsRebornAPI.Cardbase
             */
 
             // Call the method
-            // ReadWebPageAsync(url).Wait();
+            ReadWebPageAsync(url).Wait(); // fills in string urlContent
+            SMJCards cards = JsonConvert.DeserializeObject<SMJCards>(urlContent);
 
-            WebClient client = new WebClient();
-            string json = client.DownloadString(url);
+            // NGE04202024 WebClient client = new WebClient();
+            // NGE04202024 string json = client.DownloadString(url);
+            // NGE04202024 SMJCards cards = JsonConvert.DeserializeObject<SMJCards>(json);
 
-            //List<SMJCard> cardlist = new List<SMJCard>();
-
-            Root SMJRoot = JsonConvert.DeserializeObject<Root>(json);
-            List<SMJCard> cardlist = SMJRoot.data;
+            
+            List<SMJCard> cardlist = cards.data;
             return cardlist.ToArray();
 
             //dynamic array = JsonConvert.DeserializeObject(json); 

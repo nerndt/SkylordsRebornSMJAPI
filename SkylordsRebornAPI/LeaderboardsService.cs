@@ -10,7 +10,8 @@ namespace SkylordsRebornAPI
 {
     public class LeaderboardsService
     {
-        private readonly string baseUrl = "https://skylords-reborn-skylords-reborn-api-hub-backend.staging.skylords.eu/"; // "https://leaderboards.backend.skylords.eu";
+        //private readonly string baseUrl = "https://skylords-reborn-skylords-reborn-api-hub-backend.staging.skylords.eu/"; // "https://leaderboards.backend.skylords.eu";
+        private readonly string baseUrl = "https://hub.backend.skylords.eu/api/";
 
         public ulong? NextCachingRefresh()
         {
@@ -32,7 +33,7 @@ namespace SkylordsRebornAPI
 
         public List<GenericData> GetMapByPvEMode(PvEModes pveMode)
         {
-            var url = $"{baseUrl}/api/maps/{(int) pveMode}pve";
+            var url = $"{baseUrl}api/maps/{(int) pveMode}pve";
 
             var webRequest = WebRequest.Create(url);
             webRequest.ContentType = "application/json; charset=utf-8";
