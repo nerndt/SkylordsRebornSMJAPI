@@ -46,7 +46,6 @@ namespace Sample1
             {
                 var quryCardType = queryCardSLR.cardType;
             }
-
         }
     }
 }
