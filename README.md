@@ -1,5 +1,5 @@
-# SkylordsRebornAPI
-A .Net API Implementation for Skylords Reborn API
+# SkylordsRebornSMJSLRAPI
+A .Net API Implementation for Skylords Reborn API originally cloned from SkylordsRebornAPI
 
 ## Example
 ```csharp
