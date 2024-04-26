@@ -5,6 +5,7 @@
 
 using Newtonsoft.Json;
 using SkylordsRebornAPI.Cardbase.Cards;
+using System;
 using System.Collections.Generic;
 
 namespace SkylordsRebornAPI.Cardbase
@@ -606,6 +607,27 @@ namespace SkylordsRebornAPI.Cardbase
 
     public static class Utils
     {
+        private static readonly string[] CHARSETVERSION_M = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-".Split("");
+        private static readonly int CHUNKLENGTH_VERSION_M = 2;
+
+        public static string EncodeCardVersionM(int officialCardId)
+        {
+            string cardCode = "";
+
+            while (officialCardId > 0)
+            {
+                cardCode = CHARSETVERSION_M[officialCardId % CHARSETVERSION_M.Length] + cardCode;
+                officialCardId = (int)Math.Floor((double)officialCardId / CHARSETVERSION_M.Length);
+            }
+
+            while (cardCode.Length < CHUNKLENGTH_VERSION_M)
+            {
+                cardCode = CHARSETVERSION_M[0] + cardCode;
+            }
+
+            return cardCode;
+        }
+
         public static SMJCard CopySkylordsRebornCard(SkylordsRebornCard SLRCard)
         {
             SMJCard smjCard = new SMJCard();

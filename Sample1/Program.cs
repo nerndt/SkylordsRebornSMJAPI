@@ -24,6 +24,23 @@ namespace Sample1
             }
         };
 
+        public static SMJCard? GetCardFromOfficialCardId(SMJCard[]? cardsSMJ, int cardId)
+        {
+            if (cardsSMJ != null)
+            {
+                SMJCard[] cards = (SMJCard[])cardsSMJ;
+                foreach (SMJCard card in cards)
+                {
+                    var result = card.officialCardIds.FirstOrDefault(i => i == cardId);
+                    if (result != 0)
+                    {
+                        return card;
+                    }
+                }
+            }
+            return null;
+        }
+
         private static void Main()
         {
             SMJCard[] cardsSMJ = Instances.CardService.GetSMJCardList();
@@ -83,6 +100,16 @@ namespace Sample1
                 deck[19].officialCardIds[0]
                 );
             Console.WriteLine(randomDeckInputString);
+
+            int unitPower = 75; // Nomad power cost - should be able to find info about card
+
+            SMJCard? card = GetCardFromOfficialCardId(cardsSMJ, deck[0].officialCardIds[0]);
+            if (card != null)
+            {
+                unitPower = card.powerCost[3]; // Assume unit fully upgraded for now!!!!
+                Console.WriteLine("Found Card Name:{0} Power Cost:{1}", card.cardName, unitPower);
+            }
+
         }
     }
 }

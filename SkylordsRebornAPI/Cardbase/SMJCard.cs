@@ -240,43 +240,4 @@ namespace SkylordsRebornAPI.Cardbase
         public List<Ability> abilities { get; set; }
     }
 
-    /*
-        public string _id { get; set; }
-        public string cardSlug { get; set; }
-        public string cardName { get; set; }
-        public string cardNameSimple { get; set; }
-        public string cardNameImage { get; set; }
-        public int[] officialCardIds { get; set; }
-
-        public string description { get; set; }
-
-        public Edition edition { get; set; }
-        public int color { get; set; }
-
-        public Rarity rarity { get; set; }
-        
-        public int Cost { get; set; }
-
-        public CardType Type { get; set; }
-
-        public Affinity Affinity { get; set; }
-
-        public bool IsRanged { get; set; }
-        public int Defense { get; set; }
-        public int Offense { get; set; }
-        public DefenseType DefenseType { get; set; }
-        public OffenseType OffenseType { get; set; }
-        public int UnitCount { get; set; }
-        public int ChargeCount { get; set; }
-        public string Category { get; set; }
-
-        public List<Ability> Abilities { get; set; } = new();
-        public List<Upgrade> Upgrades { get; set; } = new();
-
-        public OrbInfo OrbInfo { get; set; }
-
-        public string Extra { get; set; }
-        public Media Image { get; set; }
-    
-    */
 }
