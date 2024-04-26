@@ -110,6 +110,13 @@ namespace Sample1
                 Console.WriteLine("Found Card Name:{0} Power Cost:{1}", card.cardName, unitPower);
             }
 
+            // Example queries
+            var queryCardsT1 = cardsSMJ.Where(item => item.orbsTotal == 1); // All T1 cards
+            var queryCardsT1Nature = cardsSMJ.Where(item => item.orbsTotal == 1 && item.orbsNature == 1); // All T1 Nature cards
+            var queryCardsPromo = cardsSMJ.Where(item => item.promo == 1); // All Promo cards
+            var queryCardsT2Frost = cardsSMJ.Where(item => item.orbsTotal == 2 && item.orbsFrost == 1); // All T2 Frost
+            var queryCardsTwilightEditionT2Frost = cardsSMJ.Where(item => item.orbsTotal == 2 && item.orbsFrost == 1 && item.edition == 0); // All T2 Frost
+
         }
     }
 }

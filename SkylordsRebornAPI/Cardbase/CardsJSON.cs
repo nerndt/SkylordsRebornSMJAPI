@@ -185,45 +185,45 @@ namespace SkylordsRebornAPI.Cardbase
         public string cardName { get; set; }
         public string cardNameSimple { get; set; }
         public string cardNameImage { get; set; }
-        public List<int> officialCardIds { get; set; }
+        public List<int> officialCardIds { get; set; } // First position is one used to Import Card in game
         public string description { get; set; }
-        public int edition { get; set; }
-        public int color { get; set; }
-        public int promo { get; set; }
-        public int rarity { get; set; }
-        public int orbsTotal { get; set; }
-        public int orbsNeutral { get; set; }
-        public int orbsFire { get; set; }
-        public int orbsShadow { get; set; }
-        public int orbsNature { get; set; }
-        public int orbsFrost { get; set; }
-        public int orbsFireShadow { get; set; }
-        public int orbsNatureFrost { get; set; }
-        public int orbsFireNature { get; set; }
-        public int orbsShadowFrost { get; set; }
-        public int orbsShadowNature { get; set; }
-        public int orbsFireFrost { get; set; }
-        public int affinity { get; set; }
-        public int type { get; set; }
-        public string unitModel { get; set; }
+        public int edition { get; set; } // 0 Twilight, 1 Renegade, 2 Lost Souls, 3 Amii, 4 Rebirth
+        public int color { get; set; } // 0 Neutral, Fire, Shadow, Nature, Frost, Bandits, Stonekin, Twilight, Lost Souls, Amii
+        public int promo { get; set; } // 0 No, 1 Yes
+        public int rarity { get; set; } // COmmon, Uncommon, Rare, Ultra Rare
+        public int orbsTotal { get; set; } // 1, 2, 3, 4
+        public int orbsNeutral { get; set; } // 0, 1, 2, 3, 4
+        public int orbsFire { get; set; } // 0, 1, 2, 3, 4
+        public int orbsShadow { get; set; } // 0, 1, 2, 3, 4
+        public int orbsNature { get; set; } // 0, 1, 2, 3, 4
+        public int orbsFrost { get; set; } // 0, 1, 2, 3, 4
+        public int orbsFireShadow { get; set; } // 0, 1, 2, 3, 4
+        public int orbsNatureFrost { get; set; } // 0, 1, 2, 3, 4
+        public int orbsFireNature { get; set; } // 0, 1, 2, 3, 4
+        public int orbsShadowFrost { get; set; } // 0, 1, 2, 3, 4
+        public int orbsShadowNature { get; set; } // 0, 1, 2, 3, 4
+        public int orbsFireFrost { get; set; } // 0, 1, 2, 3, 4
+        public int affinity { get; set; } // None, Fire, Nature, Shadow, Frost
+        public int type { get; set; } // Unit, Building, Spell
+        public string unitModel { get; set; } // Non-Units, Amazon, Atrocity, Balrog, Behemoth, Bird, Bow, Canine, Claw, Dancer, Dragon, Fighter, Floater, Guardian, Head, Insect, Mage, Minion, Quadraped, Raptor, Rider, Rifle, Roughneck, Ruffian, Serpent, Ship, Skyelf, Spear, Titan, Wagon, Worm, Unique
         public string category { get; set; }
-        public string unitSpecies { get; set; }
-        public string unitClass { get; set; }
-        public string buildingClass { get; set; }
-        public string spellClass { get; set; }
-        public int gender { get; set; }
-        public int movementType { get; set; }
-        public int attackType { get; set; }
-        public int offenseType { get; set; }
-        public int defenseType { get; set; }
-        public int maxCharges { get; set; }
-        public int squadSize { get; set; }
-        public int starterCard { get; set; }
+        public string unitSpecies { get; set; } // Non-Units, Amii, Ancient, Artifact, Beast, Demon, Dragonkin, Elemental, Elf, Forestkin, Giant, Human, Kobold, Ogre, Orc, Primordial, Spirit, Undead, Special
+        public string unitClass { get; set; } // Non-Units, Archer, Commander, Corrupter, Crusader, Destroyer, Dominatior, Gladiatore, Marauder, Soldier, Supporter, Wizard, Special
+        public string buildingClass { get; set; } // Non-Buildings, Artillary, Barrier, Device, Fortress, Hut, Shrine, Statue, Tower
+        public string spellClass { get; set; } // Non-Spells, Arcane, Enchantment, Spell
+        public int gender { get; set; } // Non-Units, Unspecified, Male, Female
+        public int movementType { get; set; } // Non-Units, Ground, Flying
+        public int attackType { get; set; } // Non-Units, Melee, Ranged
+        public int offenseType { get; set; } // Non-Units, Small, Meidum, Large, Extra Large, Special
+        public int defenseType { get; set; } // Non-Units, Small, Meidum, Large, Extra Large
+        public int maxCharges { get; set; } // 4, 8, 12, 16, 20, 24
+        public int squadSize { get; set; } // Spells, Buildings, 1, 2, 4, 6
+        public int starterCard { get; set; } // Non-Starter, Starter
         public List<int> powerCost { get; set; }
         public List<int> damage { get; set; }
         public List<int> health { get; set; }
-        public List<int> boosters { get; set; }
-        public List<string> upgradeMaps { get; set; }
+        public List<int> boosters { get; set; } // None, Mini, General, Fire, Shadow, Nature, Frost, Bandits, Stonekin, Twilight, Lost Souls, Amii, Fire/Frost
+        public List<string> upgradeMaps { get; set; } // None, Encounter With Twilight, Siege of Hope, Defending Hope, The Soultree, The Treasure Fleet, Behind Enemy Lines, Mo, Ocean, Oracle, Crusade, Sunbridge, Nightmare Shard, Nightmare's End, The Insane God, Slave master, Convoy, Bad Harvest, King of the Giants, Titan, The Dwarven Riddle, The guns of Lyr, Blight, Raven's End, Empire,  
         public List<Ability> abilities { get; set; }
     }
 
@@ -307,14 +307,7 @@ namespace SkylordsRebornAPI.Cardbase
         public string _minus1 { get; set; }
     }
 
-    //public enum Edition
-    //{
-    //    Twilight = 1,
-    //    Renegade = 2,
-    //    LostSouls = 4,
-    //    Amii = 8
-    //}
-
+    // 0 Twilight, 1 Renegade, 2 Lost Souls, 3 Amii, 4 Rebirth
     public class Edition
     {
         [JsonProperty("0")]
