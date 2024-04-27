@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using SkylordsRebornAPI.Cardbase.Cards;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SkylordsRebornAPI.Cardbase
 {
@@ -600,7 +601,7 @@ namespace SkylordsRebornAPI.Cardbase
 
     public static class Utils
     {
-        private static readonly string[] CHARSETVERSION_M = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-".Split("");
+        private static readonly string[] CHARSETVERSION_M = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-".Select(c => c.ToString()).ToArray();
         private static readonly int CHUNKLENGTH_VERSION_M = 2;
 
         public static string EncodeCardVersionM(int officialCardId)

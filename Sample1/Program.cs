@@ -101,6 +101,32 @@ namespace Sample1
                 );
             Console.WriteLine(randomDeckInputString);
 
+            // Use 2 character M code to import deck
+            //string randomDeckInputStringM = string.Format("/importdeck M[{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19}]",
+            string randomDeckInputStringM = string.Format("/importdeck M[{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}{17}{18}{19}]",
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[0].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[1].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[2].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[3].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[4].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[5].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[6].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[7].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[8].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[9].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[10].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[11].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[12].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[13].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[14].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[15].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[16].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[17].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[18].officialCardIds[0]),
+             SkylordsRebornAPI.Cardbase.Utils.EncodeCardVersionM(deck[19].officialCardIds[0])
+             );
+            Console.WriteLine(randomDeckInputStringM); // example: MsIqFuLZFYFsPvFNMULuF5STM1YOMqIrLbaOLELzM
+
             int unitPower = 75; // Nomad power cost - should be able to find info about card
 
             SMJCard? card = GetCardFromOfficialCardId(cardsSMJ, deck[0].officialCardIds[0]);
@@ -109,7 +135,7 @@ namespace Sample1
                 unitPower = card.powerCost[3]; // Assume unit fully upgraded for now!!!!
                 Console.WriteLine("Found Card Name:{0} Power Cost:{1}", card.cardName, unitPower);
             }
-
+            
             // Example queries
             var queryCardsT1 = cardsSMJ.Where(item => item.orbsTotal == 1); // All T1 cards
             var queryCardsT1Nature = cardsSMJ.Where(item => item.orbsTotal == 1 && item.orbsNature == 1); // All T1 Nature cards
