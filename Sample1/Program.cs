@@ -142,6 +142,7 @@ namespace Sample1
             var queryCardsPromo = cardsSMJ.Where(item => item.promo == 1); // All Promo cards
             var queryCardsT2Frost = cardsSMJ.Where(item => item.orbsTotal == 2 && item.orbsFrost == 1); // All T2 Frost
             var queryCardsTwilightEditionT2Frost = cardsSMJ.Where(item => item.orbsTotal == 2 && item.orbsFrost == 1 && item.edition == 0); // All T2 Frost
+            var queryCardsArchersT1 = cardsSMJ.Where(item => item.orbsTotal == 1 && item.unitClass == "Archer"); // All T1 Archers
 
         }
     }
